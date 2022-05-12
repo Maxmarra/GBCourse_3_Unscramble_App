@@ -13,9 +13,6 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 class GameFragment : Fragment() {
 
     private val viewModel: GameViewModel by viewModels()
-
-
-
     private lateinit var binding: GameFragmentBinding
 
     override fun onCreateView(
@@ -32,7 +29,6 @@ class GameFragment : Fragment() {
         binding.submit.setOnClickListener { onSubmitWord() }
         binding.skip.setOnClickListener { onSkipWord() }
 
-        // Observe the scrambledCharArray LiveData, passing in the LifecycleOwner and the observer.
         viewModel.currentScrambledWord.observe(viewLifecycleOwner
         ) { newWord ->
             binding.textViewUnscrambledWord.text = newWord
@@ -61,47 +57,23 @@ class GameFragment : Fragment() {
         }
     }
 
-    /*
-* Skips the current word without changing the score.
-*/
     private fun onSkipWord() {
         if (viewModel.nextWord()) {
             setErrorTextField(false)
-
         } else {
             showFinalScoreDialog()
         }
     }
 
-    /*
-     * Gets a random word for the list of words and shuffles the letters in it.
-     */
-    private fun getNextScrambledWord(): String {
-        val tempWord = allWordsList.random().toCharArray()
-        tempWord.shuffle()
-        return String(tempWord)
-    }
-
-    /*
-     * Re-initializes the data in the ViewModel and updates the views with the new data, to
-     * restart the game.
-     */
     private fun restartGame() {
         viewModel.reinitializeData()
         setErrorTextField(false)
-
     }
 
-    /*
-     * Exits the game.
-     */
     private fun exitGame() {
         activity?.finish()
     }
 
-    /*
-    * Sets and resets the text field error status.
-    */
     private fun setErrorTextField(error: Boolean) {
         if (error) {
             binding.textField.isErrorEnabled = true
@@ -112,9 +84,6 @@ class GameFragment : Fragment() {
         }
     }
 
-    /*
-* Creates and shows an AlertDialog with the final score.
-*/
     private fun showFinalScoreDialog() {
         MaterialAlertDialogBuilder(requireContext())
             .setTitle(getString(R.string.congratulations))
