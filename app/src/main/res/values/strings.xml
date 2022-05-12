@@ -7,7 +7,7 @@
     <string name="word_count">%d из %d слов</string>
     <string name="enter_your_word">Введите ваше слово</string>
     <string name="congratulations">Отлично!</string>
-    <string name="you_scored">"Вы заработали: %d"</string>
+    <string name="you_scored">"Вы заработали: %d очков"</string>
     <string name="exit">Выход</string>
     <string name="play_again">Сыграть снова</string>
     <string name="try_again">Попробуй еще раз!</string>
