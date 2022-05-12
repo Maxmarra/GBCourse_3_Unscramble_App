@@ -5,7 +5,7 @@ const val MAX_NO_OF_WORDS = 10
 const val SCORE_INCREASE = 1
 
 // List with all the words for the Game
-val allWordsList: List<String> =
+val allWordsList =
     listOf("animal",
         "auto",
         "anecdote",
