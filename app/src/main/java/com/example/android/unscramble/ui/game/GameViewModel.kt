@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 
 class GameViewModel : ViewModel() {
 
-    private var wordsList: MutableList<String> = mutableListOf()
+    private var wordsList = mutableListOf<String>()
     //промежуточное, только для работы метода getNextWord()
     private lateinit var currentWord: String
 
@@ -27,6 +27,7 @@ class GameViewModel : ViewModel() {
     }
 
     private fun getNextWord(){
+
         currentWord = allWordsList.shuffled().random()
         val tempWord = currentWord.toCharArray()
 

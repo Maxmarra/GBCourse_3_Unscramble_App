@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">drilling_part_1_1</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="score">Итого очков: %d</string>
+    <string name="word_count">%d из %d</string>
+    <string name="you_gained">"Вы заработали %d очков </string>
+</resources>

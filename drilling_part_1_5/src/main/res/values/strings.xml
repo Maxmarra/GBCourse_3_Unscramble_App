@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">drilling_part_1_5</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dialog_score">Вы набрали %d очков</string>
+    <string name="score">Итого: %d</string>
+    <string name="word_count">%d из %d</string>
+</resources>
