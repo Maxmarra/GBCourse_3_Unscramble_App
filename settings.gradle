@@ -16,8 +16,3 @@
 
 include ':app'
 rootProject.name = "Unscramble"
-include ':drilling_part_1_1'
-include ':drilling_part_1_2'
-include ':drilling_part_1_3'
-include ':drilling_part_1_4'
-include ':drilling_part_1_5'
