@@ -6,11 +6,20 @@ import androidx.lifecycle.ViewModel
 
 class GameViewModel : ViewModel() {
 
+    //TODO(1) создай изменяемый список wordsList для хранения
+    // использованных слов
     private var wordsList = mutableListOf<String>()
-    //промежуточное, только для работы метода getNextWord()
+
+    //TODO(2) создай переменную currentWord с поздней инициализацией
+    // для хранения текущего слова из всего списка слов
     private lateinit var currentWord: String
 
-    private val _currentScrambledWord = MutableLiveData<String>()
+    //TODO(3) создай три переменные типа MutableLiveData
+    // строку _currentScrambledWord / и два инта _score и _currentWordCount
+    // для хранения готового слова, счета очков и счета пройденных слов
+    // добавь для них backing property типа LiveData
+    // всем в скобках задай начальное значение ()
+    private val _currentScrambledWord = MutableLiveData<String>("")
     val currentScrambledWord: LiveData<String>
         get() = _currentScrambledWord
 
@@ -22,10 +31,29 @@ class GameViewModel : ViewModel() {
     val currentWordCount: LiveData<Int>
         get() = _currentWordCount
 
+    //TODO(5) инициализируй метод  getNextWord()
     init {
         getNextWord()
     }
 
+    //TODO(4) создай метод  getNextWord() для получения очередного
+    // слова из списка слов
+    // 1. сохрани в currentWord перемешанное рандомное слово
+    // из списка файла ListofWords
+    // 2. положи его во временную переменную val tempWord
+    // в виде массива букв
+    // 3. сделай проверку через цикл while()
+    // на то чтобы перемешанные буквы слова случайно
+    // не выдали это самое слово
+    // пока tempWord приведенный к строке (втрой способ())
+    // равен текущему слову, с игнором
+    // заглавных букв, перемешивай tempWord
+    // 4. проверь есть ли в списке пройденных слов это слово
+    // и если есть то снова вызывай этот метод getNextWord()
+    // если wordsList содержит currentWord - вызывай снова getNextWord()
+    // иначе присвой _currentScrambledWord приведенное к строке tempWord
+    // увеличь _currentWordCount на 1 (используй метод)
+    // добавь в список пройденных слов данное слово currentWord
     private fun getNextWord(){
 
         currentWord = allWordsList.shuffled().random()
@@ -43,6 +71,7 @@ class GameViewModel : ViewModel() {
         }
     }
 
+    //TODO(6) ин
     fun nextWord(): Boolean {
         return if (_currentWordCount.value!! < MAX_NO_OF_WORDS) {
             getNextWord()
